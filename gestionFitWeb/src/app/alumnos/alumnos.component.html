@@ -1,0 +1,74 @@
+<div class="container">
+  <h2 class="gymTitle">{{gymName()}}</h2>
+  <div class="row">
+    <div class="col-md input-group"><div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-search"></i></span></div><input type="text" placeholder="Buscar alumno" class="form-control"/></div>
+    <div class="col-md"></div>
+    <div class="col-md"><button class="btn btn-primary" style="font-family: 'Noto Sans', sans-serif" (click)="nuevoAlumno()">Nuevo alumno</button></div>
+  </div>
+  <h3 class="gymTitle">Alumnos</h3>
+  <div class="container listaAlumnos">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let alumno of alumnos">
+        <div class="row">
+          <div class="col-md">{{alumno.nameAndSurname}}</div>
+          <div class="col-md"><button type="button" class="btn btn-primary" style="font-family: 'Noto Sans', sans-serif" (click)="detalleAlumno(alumno)" data-toggle="modal" data-target="#modalAlumno">Ver detalle</button></div>
+          <div class="col-md"><button class="btn btn-success" style="font-family: 'Noto Sans', sans-serif" (click)="marcarAsistencia(alumno)"><i class="fas fa-clipboard-list"></i></button></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="alert alert-success alert-dismissible fade show" id="#alertSucc" role="alert" hidden="true">
+    <strong>Asistencia marcada</strong> 
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="alert alert-danger alert-dismissible fade show" id="#alertErr" role="alert" hidden="true">
+    <strong>Error al marcar asistencia</strong> 
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  
+
+
+<div class="modal fade" id="modalAlumno" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{alumnoSel.nameAndSurname}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md"><p>F. de nacimiento: {{alumnoSel.birthday}}</p></div>
+          <div class="col-md"><p>Peso: {{alumnoSel.weigth}} kg</p></div>
+          <div class="col-md"><p>Telefono: {{alumnoSel.telephone}}</p></div>
+        </div>
+        <div class="row">
+          <div class="col-md"><p>Clases restantes: {{alumnoSel.remainingLessons}}</p></div>
+          <div class="col-md"><p>Fecha de pago: {{alumnoSel.paymentDate}}</p></div>
+          <div class="col-md"><p>Clases totales: {{alumnoSel.totalClasses}}</p></div>
+        </div>
+        <div class="row">
+          <div class="col-md" *ngIf="alumnoSel.objective != ''"><p>Objetivo: {{alumnoSel.objective}}</p></div>
+          <div class="col-md" *ngIf="alumnoSel.observations != ''"><p>Observaciones: {{alumnoSel.observations}}</p></div>
+          <div class="col-md" *ngIf="alumnoSel.pathologies != ''"><p>Patologias: {{alumnoSel.pathologies}}</p></div>
+        </div>
+        <div class="row">
+          <div class="col-md"><button class="btn btn-primary" (click)="reporteAsistencia(alumnoSel)">Reporte asistencias</button></div>
+          <div class="col-md"><button class="btn btn-info" >Editar registro</button></div>
+          <div class="col-md"><button class="btn btn-danger">Eliminar alumno</button></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

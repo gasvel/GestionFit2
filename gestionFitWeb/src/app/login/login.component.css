@@ -1,0 +1,31 @@
+.invalid {
+    border-bottom: 1px solid #ea6153;
+}
+
+#myVideo {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    z-index:20;
+}
+
+ .bg{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+
+}
+
+.loginSection{
+    margin-top:10%;
+    background-color: rgba(92,90,90,.4);
+    padding:15px;
+    width:100%;
+    text-align:center
+}

@@ -1,0 +1,38 @@
+<div class="bg">
+  <video autoplay muted loop id="myVideo">
+    <source src="../assets/GestionFitBack2.mp4" type="video/mp4">
+  </video>
+  </div>
+  <div class="loginSection">
+    <div class="row">
+      <div class="col-md"></div>
+      <div class="col-md">
+        <div class="form-group" style="text-align:center">
+          <form #formLogin (ngSubmit)="onSubmit()" [formGroup]="credentials">
+            <div class="form-group" style="font-family: 'Noto Sans', sans-serif'">
+              <label for="inputUser" style="color:whitesmoke">Usuario</label>
+              <input type="text" class="form-control" id="inputUser" placeholder="Ingresa tu usuario" formControlName="email" name="username" [class.invalid]="credentials.controls['email'].invalid && credentials.controls['email'].dirty">
+            </div>
+            <div class="form-group" style="font-family: 'Noto Sans', sans-serif">
+              <label for="InputPassword1" style="color:whitesmoke">Contraseña</label>
+              <input type="password"  class="form-control" id="InputPassword1" placeholder="Contraseña" formControlName="password" name="password" [class.invalid]="credentials.controls['password'].invalid && credentials.controls['password'].dirty">
+            </div>
+            <button type="submit" class="btn btn-primary" style="font-family: 'Noto Sans', sans-serif">Ingresar</button>
+            <button class="btn btn-info" style="font-family: 'Noto Sans', sans-serif; margin-left: 20px" (click)="registro()">Registrar mi gimnasio</button>
+          </form>
+          <div class="alert alert-danger" style="margin-top: 20px" role="alert" *ngIf="errorLogin"><p style="font-family: 'Poppins',sans-serif;">Usuario y/o contraseña incorrectos</p></div>
+          
+        </div>
+        </div>
+      <div class="col-md"></div>
+    </div>
+
+    <!--<ngx-spinner
+    bdColor="rgba(51,51,51,0.8)"
+    size="medium"
+    color="#1565C0"
+    loadingText="Cargando..."
+    type="ball-pulse">
+    </ngx-spinner> -->
+
+  </div>

@@ -1,0 +1,90 @@
+<div class="wrapper">
+  <!-- Sidebar Holder -->
+  <nav id="sidebar" class="active" *ngIf="isLogged()">
+    <div class="sidebar-header">
+      <img src="assets/icon.png" height="60px" width="60px">
+    </div>
+    <!--
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>    -->
+
+    <ul class="list-unstyled components" style="padding-top: 15px">
+      <li class="active" *ngIf="isLogged()">
+          <h4>Hola {{userName()}} !</h4>
+      </li>
+<!--
+      <li>
+          <a [routerLink]="" (click)="calendario()" ><p>Calendario <i class="fas fa-calendar-alt"></i></p></a>
+      </li>
+      <li *ngIf="isAdmin()">
+          <a [routerLink]="" (click)="instructores()"><p>Instructores' <i class="fas fa-users"></i></p></a>
+      </li>-->
+
+      <li>
+          <a [routerLink]="" (click)="alumnos()"><p>Alumnos <i class="fas fa-users"></i></p></a>
+      </li>
+      <!--
+      <li>
+          <a data-toggle="collapse" href="#rutinasCol" role="button" aria-expanded="false" aria-controls="rutinasCol"><p>{{'Rutinas <i class="fas fa-angle-down"></i></p></a>
+          <div class="collapse" id="rutinasCol">
+                  <a [routerLink]="" (click)="rutinas()"><p>Plantillas <i class="fas fa-calendar-alt"></i></p></a>
+                  <a [routerLink]="" (click)="nuevaRutina()"><p>{{'Nueva' | translate}} <i class="fas fa-calendar-plus"></i></p></a>
+
+          </div>
+      </li>
+      <li>
+          <a data-toggle="collapse" href="#rutinasEj" role="button" aria-expanded="false" aria-controls="rutinasEj"><p>{{'Ejercicios' | translate}} <i class="fas fa-angle-down"></i></p></a>
+          <div class="collapse" id="rutinasEj">
+          <a [routerLink]="" (click)="ejercicios()"><p> {{'Plantillas' | translate}} <i class="fas fa-file-alt"></i></p></a>
+          <a [routerLink]="" (click)="nuevoEjercicio()"><p>{{'Nuevo' | translate}} <i class="fas fa-plus-circle"></i> </p></a>
+
+      </div>
+      </li>
+
+      <li>
+          <a [routerLink]="" (click)="promos()"><p> Promos <i class="fas fa-envelope"></i></p></a>
+      </li>
+-->
+      <li>
+          <a [routerLink]="" (click)="logout()"><p>Cerrar sesion <i class="fas fa-sign-out-alt"></i></p></a>
+      </li>
+
+      <li>
+          <a [routerLink]="" (click)="cerrarSidebar()"><p>Cerrar <i class="fas fa-times-circle"></i></p></a>
+      </li>
+    </ul>
+
+
+  </nav>
+
+  <!-- Page Content Holder -->
+  <div id="content" class="active">
+
+      <nav class="navbar navbar-expand-sm navbar-light  shadow" style="width:100%;">
+      <div class="container-fluid">
+
+              <ul class="navbar-nav" *ngIf="isLogged()">
+                      <li class="nav-item">
+                          <a [routerLink]="" (click)="cerrarSidebar()" id="sidebarCollapse"><span class="navbar-toggler-icon"></span></a>
+                      </li>
+
+              </ul>
+
+
+               <span class="navbar-brand" style="width:100%;text-align: center;font-family: 'Poppins', sans-serif;  font-weight: 500;
+               ">
+                  <a class="navbar-brand" href="">
+                  <img src="/assets/icon.png" width="40" height="35" class="d-inline-block align-top" alt="">
+                  GestionFit
+                  </a>
+               </span>
+
+               </div>
+    </nav>
+
+    <!-- (activate)="changeRoute()"-->
+
+    <router-outlet></router-outlet>
+  </div>
+</div>

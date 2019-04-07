@@ -1,0 +1,47 @@
+<div class="container">
+  <form [formGroup]="alumno">
+    <div class="form-group">
+      <label for="inputNombre">Nombre del alumno</label>
+      <input type="text" class="form-control" id="inputNombre" aria-describedby="errorNombre" formControlName="nameAndSurname" placeholder="Nombre">
+      <small id="errorNombre" *ngIf="alumno.controls['nameAndSurname'].invalid" style="color:red">El alumno debe tener un nombre de al menos 4 caracteres</small>
+    </div>
+    <div class="form-group">
+      <label for="inputMail">Mail</label>
+      <input type="text" class="form-control" id="inputMail" aria-describedby="errorMail" formControlName="mail" placeholder="Mail">
+      <small id="errorMail" *ngIf="alumno.controls['mail'].invalid" style="color:red">Mail invalido</small>
+    </div>
+    <div class="form-group">
+      <label for="inputPeso">Peso</label>
+      <input type="number" class="form-control" id="inputPeso" aria-describedby="errorPeso" formControlName="weigth" placeholder="Peso">
+      <small id="errorPeso" *ngIf="alumno.controls['weigth'].invalid" style="color:red">Peso invalido</small>
+    </div>
+    <div class="form-group">
+      <label for="inputNac">Fecha de nacimiento</label>
+      <input type="date" class="form-control" id="inputNac" aria-describedby="errorNac" formControlName="birthday" placeholder="Fecha de nacimiento">
+      <small id="errorNac" *ngIf="alumno.controls['birthday'].invalid" style="color:red">Fecha invalida</small>
+    </div>
+    <div class="form-group">
+      <label for="inputObj">Objetivo</label>
+      <input type="text" class="form-control" id="inputObj" aria-describedby="errorObj" formControlName="objective" placeholder="Objetivo">
+      <small id="errorObj" *ngIf="alumno.controls['objective'].invalid" style="color:red">Contenido invalido</small>
+    </div>
+    <div class="form-group">
+      <label for="inputTel">Telefono</label>
+      <input type="text" class="form-control" id="inputTel" aria-describedby="errorTel" formControlName="telephone" placeholder="Telefono">
+      <small id="errorTel" *ngIf="alumno.controls['telephone'].invalid" style="color:red">Telefono invalido</small>
+    </div>
+    <div class="form-group">
+      <label for="inputObs">Observaciones</label>
+      <input type="text" class="form-control" id="inputObs" aria-describedby="errorObs" formControlName="observations" placeholder="Observaciones">
+      <small id="errorObs" *ngIf="alumno.controls['observations'].invalid" style="color:red">Contenido invalido</small>
+    </div>
+    <div class="form-group">
+      <label for="inputPat">Patologias</label>
+      <input type="text" class="form-control" id="inputPat" aria-describedby="errorPat" formControlName="pathologies" placeholder="Patologias">
+      <small id="errorPat" *ngIf="alumno.controls['pathologies'].invalid" style="color:red">Contenido invalido</small>
+    </div>
+    <button class="btn btn-success" type="submit" (click)="guardar()" [disabled]="alumno.invalid">Guardar</button>
+    <button class="btn btn-danger" [routerLink]="'/alumnos'">Atras</button>
+  </form>
+
+</div>
