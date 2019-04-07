@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		 
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+
+         
+         <!-- 
+         <property name="connection.url">jdbc:postgresql://localhost:5432/gestionfit</property>
+        <property name="connection.username">gestionfitdb</property>
+        <property name="connection.password">gestionfitdb1234</property> -->
+         
+                <!--
+         		<property name="connection.url">${JDBC_DATABASE_URL}</property>
+		<property name="connection.username">${JDBC_DATABASE_USERNAME}</property>
+		<property name="connection.password">${JDBC_DATABASE_PASSWORD}</property>
+		
+		        <property name="connection.url">jdbc:postgresql://localhost:5432/gestionfit</property>
+        <property name="connection.username">fitdb</property>
+        <property name="connection.password">gestionFit</property>
+        
+        <property name="connection.url">jdbc:postgresql://ec2-54-243-54-6.compute-1.amazonaws.com:5432/d7rlk11u6hv4p3</property>
+		<property name="connection.username">mgkzaevyulmewm</property>
+		<property name="connection.password">f46b0e60741d7bbbccdfe31799b1c7be295f19c9988f141709c5bab41313e7db</property>
+        
+        -->
+            <property name="hibernate.connection.pool_size">20</property>
+		<!-- SQL dialect -->
+		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+		<!-- Disable the second-level cache -->
+		<property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+
+		<!-- Echo all executed SQL to stdout -->
+		<property name="show_sql">false</property>
+		
+		<property name="hibernate.hbm2ddl.auto">create-drop</property>
+
+
+		<mapping class="app.model.DaysAssisted" />
+		<mapping class="app.model.StartEndHour" />
+		<mapping class="app.model.StudentAssist" />
+		<mapping class="app.model.DayStudent" />
+		<mapping class="app.model.DayInstructor" />
+		<mapping class="app.model.Exercise" />
+		<mapping class="app.model.Measure" />
+		<mapping class="app.model.Measurement" />
+		<mapping class="app.model.MeasuringTable" />
+		<mapping class="app.model.User" />
+		<mapping class="app.model.User_Student" />
+		<mapping class="app.model.User_Instructor" />
+		<mapping class="app.model.User_Admin"/>
+		<mapping class="app.model.Exercise_Type" />
+		<mapping class="app.model.Routine_Type" />
+		<mapping class="app.model.Routine" />
+		<mapping class="app.model.Class_Day" />
+		<mapping class="app.model.Class_Calendar" />
+		<mapping class="app.model.Gym" />
+		<mapping class="app.model.GymDTO" />
+		<mapping class="app.model.Payment" />
+		<mapping class="app.model.PaymentDay" />
+	
+		
+		
+		
+	</session-factory>
+</hibernate-configuration>
