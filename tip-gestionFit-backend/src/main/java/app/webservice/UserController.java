@@ -214,10 +214,10 @@ public class UserController {
 	}
 	
 	@PostMapping(value = "/assist/student/{id}",produces="application/json")
-	public ResponseEntity<User> studentAssist(@PathVariable("id") String id) throws Exception{
+	public ResponseEntity<User> studentAssist(@PathVariable("id") long id) throws Exception{
 		User_Student user;
-		this.userServ.studentAssist(id);
-		user = (User_Student) this.userServ.getByRfid(id);
+		this.userServ.studentAssistById(id);
+		user = (User_Student) this.userServ.getById(id);
 		this.calServ.markAssist(user);
 
 //		@Transactional

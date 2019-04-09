@@ -46,8 +46,8 @@ export class AlumnosComponent implements OnInit {
 
   }
 
-  marcarAsistenciaAlumno(alumno){
-    this.alumnosServ.markAssist(alumno.id).subscribe(
+  marcarAsistenciaAlumno(id){
+    this.alumnosServ.markAssist(id).subscribe(
       ()=> this.mostrarAlertaSucc(),
       err => this.mostrarAlertaErr()
     );

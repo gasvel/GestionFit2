@@ -206,6 +206,18 @@ public class UserService {
 		user.calculateAssitance();
 		this.updateStudent(user);
 	}
+	
+	@Transactional
+	public void studentAssistById(Long id) throws InsufficientLessonsException,ExpiredLessonsException{
+		User_Student user = (User_Student) this.getById(id);
+		if(user == null){
+			throw new UserNotFoundException("Usuario no encontrado");
+		}
+		user.substractRemainingLessons();
+		user.addNewLog();
+		user.calculateAssitance();
+		this.updateStudent(user);
+	}
 
 	@Transactional
 	public boolean checkUsername(String username) {

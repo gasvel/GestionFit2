@@ -12,7 +12,7 @@
         <div class="row">
           <div class="col-md">{{alumno.nameAndSurname}}</div>
           <div class="col-md"><button type="button" class="btn btn-primary" style="font-family: 'Noto Sans', sans-serif" (click)="detalleAlumno(alumno)" data-toggle="modal" data-target="#modalAlumno">Ver detalle</button></div>
-          <div class="col-md"><button class="btn btn-success" style="font-family: 'Noto Sans', sans-serif" (click)="marcarAsistencia(alumno)"><i class="fas fa-clipboard-list"></i></button></div>
+          <div class="col-md"><button class="btn btn-success" style="font-family: 'Noto Sans', sans-serif" (click)="marcarAsistenciaAlumno(alumno.id)"><i class="fas fa-clipboard-list"></i></button></div>
         </div>
       </li>
     </ul>
