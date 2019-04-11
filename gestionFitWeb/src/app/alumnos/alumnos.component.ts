@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AlumnosService } from '../services/alumnos/alumnos.service';
 import { Router } from '@angular/router';
+import {  saveAs } from 'file-saver';
+
+
 declare var jquery:any;
 declare var $ :any;
 
@@ -46,16 +49,17 @@ export class AlumnosComponent implements OnInit {
 
   }
 
-  marcarAsistenciaAlumno(alumno){
-    this.alumnosServ.markAssist(alumno.id).subscribe(
+  marcarAsistenciaAlumno(id){
+    this.alumnosServ.markAssist(id).subscribe(
       ()=> this.mostrarAlertaSucc(),
-      err => this.mostrarAlertaErr()
+      err => console.log(err)
     );
   }
 
   reporteAsistencia(alumno){
     this.alumnosServ.getReport(alumno.id).subscribe(
-      res => {return res},
+      res => {var blob = new Blob([res], { type: "mediaType" });
+              saveAs(blob,"Reporte.pdf");},
       error => console.log(error)
     )
   }
