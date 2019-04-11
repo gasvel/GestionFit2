@@ -112,8 +112,8 @@ export class AlumnosService {
   }
 
   getReport(id):Observable<any>{
-    this.httpOptions = {headers: new HttpHeaders({"Authorization": localStorage.getItem("token")})};
-    return this.http.get(this.apiUrl + "/user/assistReport/" + id);
+    this.httpOptions = {headers: new HttpHeaders({"Authorization": localStorage.getItem("token")}),responseType: "blob"};
+    return this.http.get(this.apiUrl + "user/assistReport/" + id,this.httpOptions);
   }
 
 }

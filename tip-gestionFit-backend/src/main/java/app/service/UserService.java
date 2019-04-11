@@ -208,7 +208,7 @@ public class UserService {
 	}
 	
 	@Transactional
-	public void studentAssistById(Long id) throws InsufficientLessonsException,ExpiredLessonsException{
+	public void studentAssistById(long id) throws InsufficientLessonsException,ExpiredLessonsException{
 		User_Student user = (User_Student) this.getById(id);
 		if(user == null){
 			throw new UserNotFoundException("Usuario no encontrado");
