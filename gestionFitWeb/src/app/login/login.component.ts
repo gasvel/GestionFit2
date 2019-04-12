@@ -57,4 +57,8 @@ export class LoginComponent implements OnInit {
     return localStorage.getItem("token") != null;
   }
 
+  registro(){
+    this.routerServ.navigate(['/registro']);
+  }
+
 }

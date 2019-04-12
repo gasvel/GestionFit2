@@ -33,6 +33,7 @@ import app.model.MeasuringTable;
 import app.model.Routine;
 import app.model.User;
 import app.model.UserInfo;
+import app.model.User_Admin;
 import app.model.User_Instructor;
 import app.model.User_Student;
 import app.service.CalendarService;
@@ -102,6 +103,18 @@ public class UserController {
 		}
 		else {
 			this.gymServ.addInstructor(gym,user);
+			return new ResponseEntity<Void>(HttpStatus.CREATED);
+		}
+	}
+	
+	@PostMapping(value = "/admin/{idGym}", produces = "application/json")   
+	public ResponseEntity<Void> createAdmin(@RequestBody User_Admin user,@PathVariable("idGym")long gymId) throws Exception {
+		Gym gym = this.gymServ.getGym(gymId);
+		if(gym == null) {
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+		}
+		else {
+			this.gymServ.addAdmin(gym,user);
 			return new ResponseEntity<Void>(HttpStatus.CREATED);
 		}
 	}
