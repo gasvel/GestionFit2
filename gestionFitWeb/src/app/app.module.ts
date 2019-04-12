@@ -12,6 +12,7 @@ import { NuevoAlumnoComponent } from './nuevo-alumno/nuevo-alumno.component';
 import { PagosComponent } from './pagos/pagos.component';
 import { ClasesComponent } from './clases/clases.component';
 import { AgregarClasesAlumnoComponent } from './agregar-clases-alumno/agregar-clases-alumno.component';
+import { RegistroGymComponent } from './registro-gym/registro-gym.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { AgregarClasesAlumnoComponent } from './agregar-clases-alumno/agregar-cl
     NuevoAlumnoComponent,
     PagosComponent,
     ClasesComponent,
-    AgregarClasesAlumnoComponent
+    AgregarClasesAlumnoComponent,
+    RegistroGymComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,22 @@
+<div class="container">
+  <form [formGroup]="register">
+    <div class="form-group">
+      <label for="inputNombre">Nombre</label>
+      <input type="text" class="form-control" id="inputNombre" aria-describedby="errorNombre" formControlName="nameAndSurname" placeholder="Nombre">
+      <small id="errorNombre" *ngIf="register.controls['nameAndSurname'].invalid && register.controls['nameAndSurname'].dirty" style="color:red">El alumno debe tener un nombre de al menos 4 caracteres</small>
+    </div>
+    <div class="form-group">
+      <label for="inputMail">Mail</label>
+      <input type="text" class="form-control" id="inputMail" aria-describedby="errorMail" formControlName="mail" placeholder="Mail">
+      <small id="errorMail" *ngIf="register.controls['mail'].invalid && register.controls['mail'].dirty" style="color:red">Mail invalido</small>
+    </div>
+    <div class="form-group">
+      <label for="inputGym">Nombre del establecimiento</label>
+      <input type="text" class="form-control" id="inputGym" aria-describedby="errorPeso" formControlName="gym" placeholder="Establecimiento">
+      <small id="errorGym" *ngIf="register.controls['gym'].invalid && register.controls['gym'].dirty" style="color:red">Debe especificar el nombre del establecimiento</small>
+    </div>
+    <button class="btn btn-success" type="submit" (click)="guardar()" [disabled]="register.invalid">Guardar</button>
+    <button class="btn btn-danger" [routerLink]="'/'">Atras</button>
+  </form>
+
+</div>

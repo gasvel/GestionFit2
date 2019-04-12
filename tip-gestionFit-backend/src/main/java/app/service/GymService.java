@@ -14,6 +14,7 @@ import app.model.Class_Calendar;
 import app.model.Gym;
 import app.model.GymDTO;
 import app.model.UserInfo;
+import app.model.User_Admin;
 import app.model.User_Instructor;
 import app.model.User_Student;
 import app.persistence.GymDAO;
@@ -77,6 +78,16 @@ public class GymService {
 		PasswordEncoder encoder = new BCryptPasswordEncoder();
 		user.setPassword(encoder.encode(user.getPassword()));
 		user.setRole("INSTRUCTOR");
+		gym.addUser(user);
+		this.gymDAO.update(gym);
+	}
+	
+	@Transactional
+	public void addAdmin(Gym gym, User_Admin user) {
+		ArgumentsValidator.validateAdmin(user);
+		PasswordEncoder encoder = new BCryptPasswordEncoder();
+		user.setPassword(encoder.encode(user.getPassword()));
+		user.setRole("ADMIN");
 		gym.addUser(user);
 		this.gymDAO.update(gym);
 	}
